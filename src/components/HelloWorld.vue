@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <tabs @click="handleClick">
+    <tabs @click="handleClick" type="border-card" tabPosition="left">
       <tab-pane label="用户管理" name="a">
         <el-button slot="label">用户管理</el-button>
       </tab-pane>

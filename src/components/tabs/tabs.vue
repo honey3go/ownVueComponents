@@ -2,8 +2,11 @@
   <div class="tabs">
     <div class="tab-nav-wrap">
       <tab-nav
+        class="tab-position-left"
         :labels="labels"
         :active="active"
+        :type="type"
+        :tabPosition="tabPosition"
         @handelClick="changeTab"
       >
       </tab-nav>
@@ -23,6 +26,10 @@
       type: {
         type: String,
         default: 'card',
+      },
+      tabPosition: {
+        type: String,
+        default: 'top',
       }
     },
     components: {
