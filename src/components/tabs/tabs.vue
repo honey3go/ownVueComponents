@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs">
+  <div :class="['tabs',`tabs-${tabPosition}`]" >
     <div class="tab-nav-wrap">
       <tab-nav
         class="tab-position-left"
@@ -72,3 +72,22 @@
     },
   }
 </script>
+
+<style>
+  .tabs {
+    display: flex;
+    flex-direction: column;
+  }
+  .tabs-bottom {
+    flex-direction: column-reverse;
+  }
+  .tabs-left {
+    flex-direction: row;
+  }
+  .tabs-right {
+    flex-direction: row-reverse;
+  }
+  .tab-panel-wrap {
+    flex-grow: 1;
+  }
+</style>

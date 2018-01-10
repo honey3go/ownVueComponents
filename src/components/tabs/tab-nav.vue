@@ -1,8 +1,9 @@
 <template>
-  <div :class="['tab-nav', type]">
+  <div :class="['tab-nav', `tab-nav-${type}`, `tab-nav-${tabPosition}`]">
     <div
       :class="['nav-item',
                `nav-item-${type}`,
+               `nav-item-${tabPosition}`,
                {'active': index === active},
                {'active-border-card': type === 'border-card' && index === active}]"
       v-for="(label, index) in labels"
@@ -46,6 +47,14 @@
   .tab-nav {
     display: flex;
   }
+  .tab-nav-right, .tab-nav-left {
+    flex-direction: column;
+  }
+  .tab-nav-border-card {
+    color: rgb(144,147,153);
+    background-color: rgb(245,247,250);
+    border: 1px solid rgb(228,231,237);
+  }
   .nav-item {
     padding: 10px 20px;
     cursor: pointer;
@@ -64,11 +73,6 @@
     color: #409EFF;
     background-color: white;
     border-bottom: 0;
-  }
-  .border-card {
-    color: rgb(144,147,153);
-    background-color: rgb(245,247,250);
-    border: 1px solid rgb(228,231,237);
   }
   .active-border-card {
     border: 1px solid rgb(228,231,237);
