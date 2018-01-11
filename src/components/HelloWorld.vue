@@ -1,6 +1,11 @@
 <template>
   <div class="hello">
-    <tabs @click="handleClick" type="border-card" tabPosition="left">
+    <grid :data="table">
+      <grid-column label="ID" prop="id" width="20"></grid-column>
+      <grid-column label="姓名" prop="name"></grid-column>
+      <grid-column label="描述" prop="text" width="300"></grid-column>
+    </grid>
+<!--    <tabs @click="handleClick" type="border-card" tabPosition="left">
       <tab-pane label="用户管理" name="a">
         <el-button slot="label">用户管理</el-button>
       </tab-pane>
@@ -12,19 +17,21 @@
         <el-button>系统管理</el-button>
         <el-button>系统管理</el-button>
       </tab-pane>
-    </tabs>
-    <el-tabs></el-tabs>
+    </tabs>-->
   </div>
 </template>
 
 <script>
-import tabs from "./tabs/tabs.vue";
-import tabPane from "./tabs/tab-pane.vue";
+import tabs from "./tabs";
+import tabPane from "./tabs/tab-pane";
+
+import grid from './grid';
+import gridColumn from './grid/grid-column';
 
 export default {
   name: 'HelloWorld',
   components:{
-    tabs,tabPane,
+    tabs,tabPane,grid,gridColumn
   },
   data () {
     return {
@@ -34,7 +41,7 @@ export default {
       ],
       table:[
         {text:'one', name:'xiaoming', id:1},
-        {text:'two', name:'xiaohong', id:2}
+        {text:'two', name:'xhong', id:2}
       ],
     }
   },
