@@ -4,13 +4,13 @@
       :class="['nav-item',
                `nav-item-${type}`,
                `nav-item-${tabPosition}`,
-               {'active': index === active},
-               {'active-border-card': type === 'border-card' && index === active}]"
+               index === active ? `active active-${type}-${tabPosition}` :'']"
       v-for="(label, index) in labels"
       @click="handleChangeTab(index)"
     >
-      {{label}}
+      {{ label }}
     </div>
+    <div class="nav-static"></div>
   </div>
 </template>
 
@@ -39,7 +39,7 @@
       handleChangeTab(index) {
         this.$emit('handelClick',index)
       },
-    }
+    },
   }
 </script>
 
@@ -47,38 +47,43 @@
   .tab-nav {
     display: flex;
   }
+  .nav-static {
+    flex-grow: 1;
+  }
   .tab-nav-right, .tab-nav-left {
     flex-direction: column;
-  }
-  .tab-nav-border-card {
-    color: rgb(144,147,153);
-    background-color: rgb(245,247,250);
-    border: 1px solid rgb(228,231,237);
+    height: 100%;
   }
   .nav-item {
     padding: 10px 20px;
     cursor: pointer;
   }
-  .nav-item-card {
-    border: 1px solid rgb(228,231,237);
-    margin-right: -1px;
+  .nav-item-left {
+    border-right: 2px solid white;
   }
-  .nav-item-card:first-child {
-    border-top-left-radius: 8px;
+  .nav-item-right {
+    border-left: 2px solid white;
   }
-  .nav-item-card:last-child {
-    border-top-right-radius: 8px;
+  .nav-item-top {
+    border-bottom: 2px solid white;
+  }
+  .nav-item-bottom {
+    border-top: 2px solid white;
   }
   .active {
     color: #409EFF;
-    background-color: white;
-    border-bottom: 0;
+    background-color: #f2f9fc;
   }
-  .active-border-card {
-    border: 1px solid rgb(228,231,237);
-    border-top: 0;
-    border-bottom: 0;
-    margin-bottom: -1px;
-    margin-left: -1px;
+  .active-border-card-top {
+    border-bottom-color: #409EFF;
+  }
+  .active-border-card-bottom {
+    border-top: 2px solid #409EFF;
+  }
+  .active-border-card-left {
+    border-right-color: #409EFF;
+  }
+  .active-border-card-right {
+    border-left: 2px solid #409EFF;
   }
 </style>

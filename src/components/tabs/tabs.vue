@@ -9,9 +9,10 @@
         :tabPosition="tabPosition"
         @handelClick="changeTab"
       >
+        <slot name="label"></slot>
       </tab-nav>
     </div>
-    <div class="tab-panel-wrap">
+    <div :class="['tab-panel-wrap',`tab-panel-wrap-${tabPosition}`]">
       <slot></slot>
     </div>
   </div>
@@ -25,7 +26,7 @@
       intialActive: String,
       type: {
         type: String,
-        default: 'card',
+        default: 'border-card',
       },
       tabPosition: {
         type: String,
@@ -89,5 +90,19 @@
   }
   .tab-panel-wrap {
     flex-grow: 1;
+    padding: 20px;
+    height: 500px;
+  }
+  .tab-panel-wrap-top {
+    border-top: 1px solid rgb(228,231,237);
+  }
+  .tab-panel-wrap-bottom {
+    border-bottom: 1px solid rgb(228,231,237);
+  }
+  .tab-panel-wrap-left {
+    border-left: 1px solid rgb(228,231,237);
+  }
+  .tab-panel-wrap-right {
+    border-bottom: 1px solid rgb(228,231,237);
   }
 </style>

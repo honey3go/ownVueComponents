@@ -62,4 +62,7 @@ li {
 a {
   color: #42b983;
 }
+  .red{
+    color: red;
+  }
 </style>
