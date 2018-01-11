@@ -1,6 +1,6 @@
-# slottest
+# own vue components
 
-> A Vue.js project
+> common components written by vue & flex
 
 ## Build Setup
 
@@ -22,6 +22,14 @@ npm run unit
 
 # run all tests
 npm test
+
+## current components
+tabs(done):
+    code:src/components/tabs
+    usage example: src/components/HelloWorld.vue
+grid(doing):
+    code:src/components/grid
+    usage example: src/components/HelloWorld.vue
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

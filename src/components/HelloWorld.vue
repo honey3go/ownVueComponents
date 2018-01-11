@@ -5,7 +5,7 @@
       <grid-column label="姓名" prop="name"></grid-column>
       <grid-column label="描述" prop="text" width="300"></grid-column>
     </grid>
-<!--    <tabs @click="handleClick" type="border-card" tabPosition="left">
+    <tabs @click="handleClick" type="border-card" tabPosition="left">
       <tab-pane label="用户管理" name="a">
         <el-button slot="label">用户管理</el-button>
       </tab-pane>
@@ -17,7 +17,7 @@
         <el-button>系统管理</el-button>
         <el-button>系统管理</el-button>
       </tab-pane>
-    </tabs>-->
+    </tabs>
   </div>
 </template>
 
