@@ -1,13 +1,15 @@
 <template>
   <div class="hello">
+    <!--grid demo-->
     <grid :data="table">
       <grid-column label="ID" prop="id" width="20"></grid-column>
       <grid-column label="姓名" prop="name"></grid-column>
       <grid-column label="描述" prop="text" width="300"></grid-column>
     </grid>
+    <!--tabs demo-->
     <tabs @click="handleClick" type="border-card" tabPosition="left">
       <tab-pane label="用户管理" name="a">
-        <el-button slot="label">用户管理</el-button>
+        <el-button>用户管理</el-button>
       </tab-pane>
       <tab-pane label="配置管理" name="b">
         <el-button>配置管理</el-button>
