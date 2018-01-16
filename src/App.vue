@@ -5,8 +5,19 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+import { SET_USERNAME } from './store/constants/types-mutation';
+
 export default {
-  name: 'app'
+  name: 'app',
+  methods: {
+    ...mapMutations([
+      SET_USERNAME
+    ])
+  },
+  mounted() {
+    this.SET_USERNAME();
+  },
 }
 </script>
 

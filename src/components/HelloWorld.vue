@@ -1,10 +1,17 @@
 <template>
   <div class="hello">
+    <!--pagination demo-->
+    <pagination :total="16"
+                :splitNum="9"
+                @handleClickPage="changePage"
+    >
+    </pagination>
     <!--grid demo-->
     <grid :data="table">
+      <grid-column type="checkbox"></grid-column>
       <grid-column label="ID" prop="id" width="20"></grid-column>
       <grid-column label="姓名" prop="name"></grid-column>
-      <grid-column label="描述" prop="text" width="300"></grid-column>
+      <grid-column label="描述" prop="text"></grid-column>
     </grid>
     <!--tabs demo-->
     <tabs @click="handleClick" type="border-card" tabPosition="left">
@@ -24,16 +31,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import { ADD_ACTION } from './grid/store/constants/types-action';
+
 import tabs from "./tabs";
 import tabPane from "./tabs/tab-pane";
 
 import grid from './grid';
 import gridColumn from './grid/grid-column';
 
+import pagination from './pagination';
 export default {
   name: 'HelloWorld',
   components:{
-    tabs,tabPane,grid,gridColumn
+    tabs,tabPane,grid,gridColumn,pagination
   },
   data () {
     return {
@@ -48,9 +59,21 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      ADD_ACTION,
+    ]),
     handleClick(labels, names, index) {
       console.log('click', labels, names, index)
     },
+    changePage(n) {
+      console.log(n)
+    },
+  },
+  mounted () {
+    console.log('before')
+    this.ADD_ACTION().then(() => {
+      console.log('after')
+    });
   }
 }
 </script>
